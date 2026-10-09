@@ -1,5 +1,5 @@
 
-# Cisco Catalyst 2960-X | Hands-On Network Infrastructure Engineering
+# Cisco Catalyst 2960-X | Hands-On Network Infrastructure 
 
 ### Physical Enterprise Hardware • Secure Sanitization • Cisco IOS Recovery • Boot Configuration • Post-Recovery Validation
 
