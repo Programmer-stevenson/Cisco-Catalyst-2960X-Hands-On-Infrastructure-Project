@@ -1,5 +1,5 @@
 
-# Cisco Catalyst 2960-X | Hands-On Network Infrastructure 
+# Cisco Catalyst 2960-X | Hands-On Network Infrastructure Engineering
 
 ### Physical Enterprise Hardware • Secure Sanitization • Cisco IOS Recovery • Boot Configuration • Post-Recovery Validation
 
@@ -62,20 +62,36 @@ The following activities were documented during this physical infrastructure pro
 
 ---
 
+<a id="table-of-contents"></a>
+
 ## Table of Contents
 
-1. [Physical Equipment Gallery](#physical-equipment-gallery)
-2. [Technical Environment](#technical-environment)
-3. [Project Objectives](#1-project-objectives)
-4. [Engineering Workflow](#2-engineering-workflow)
-5. [Technical Implementation Walkthrough](#3-technical-implementation-walkthrough)
-6. [Verification Matrix](#4-technical-verification-matrix)
-7. [Additional Infrastructure Diagnostics](#5-additional-infrastructure-diagnostics)
-8. [Engineering Skills Demonstrated](#6-engineering-skills-demonstrated)
-9. [Key Engineering Takeaways](#7-key-engineering-takeaways)
-10. [Project Documentation](#8-project-documentation)
-11. [Repository Structure](#9-repository-structure)
-12. [About This Project](#10-about-this-project)
+- [Project Overview](#project-overview)
+- [Project Results](#project-results)
+- [Physical Equipment Gallery](#physical-equipment-gallery)
+- [Technical Environment](#technical-environment)
+- [1. Project Objectives](#1-project-objectives)
+- [2. Engineering Workflow](#2-engineering-workflow)
+- [3. Technical Implementation Walkthrough](#3-technical-implementation-walkthrough)
+  - [Phase 1 — Flash Storage Inspection and Formatting](#phase-1)
+  - [Phase 2 — Cisco IOS Boot from USB](#phase-2)
+  - [Phase 3 — Secure Factory Reset](#phase-3)
+  - [Phase 4 — FIPS Zeroization](#phase-4)
+  - [Phase 5 — Bootloader Environment Verification](#phase-5)
+  - [Phase 6 — IOS Recovery Following Zeroization](#phase-6)
+  - [Phase 7 — IOS Image Installation and Boot Configuration](#phase-7)
+  - [Phase 8 — Running Configuration Inspection](#phase-8)
+  - [Phase 9 — Startup Configuration Inspection](#phase-9)
+  - [Phase 10 — VLAN Database Verification](#phase-10)
+  - [Phase 11 — VTP and Power Capability Inspection](#phase-11)
+  - [Phase 12 — Hardware Inventory Verification](#phase-12)
+- [4. Technical Verification Matrix](#4-technical-verification-matrix)
+- [5. Additional Infrastructure Diagnostics](#5-additional-infrastructure-diagnostics)
+- [6. Engineering Skills Demonstrated](#6-engineering-skills-demonstrated)
+- [7. Key Engineering Takeaways](#7-key-engineering-takeaways)
+- [8. Project Documentation](#8-project-documentation)
+- [9. Repository Structure](#9-repository-structure)
+- [10. About This Project](#10-about-this-project)
 
 ---
 
@@ -99,6 +115,10 @@ The following activities were documented during this physical infrastructure pro
 
 > **Equipment photography:** The office backgrounds in these photographs were digitally modified for presentation consistency. Actual CLI captures are included in the technical walkthrough as evidence of the documented operations.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
 
 ## Technical Environment
@@ -121,6 +141,10 @@ The following activities were documented during this physical infrastructure pro
 | Network Environment | Isolated / Offline |
 | Project Type | Physical Hands-On Infrastructure |
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
 
 # 1. Project Objectives
@@ -141,6 +165,10 @@ The primary objective was to service a physical Cisco Catalyst 2960-X switch thr
 10. Confirm the physical device model through CLI.
 11. Document the observed system state following recovery.
 12. Produce a technical record supported by screenshots.
+
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
 
 ---
 
@@ -176,6 +204,10 @@ flowchart TD
 
 **Documentation:** Preserve technical screenshots and distinguish observed results from operations not independently verified.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
 
 # 3. Technical Implementation Walkthrough
@@ -187,6 +219,8 @@ Each phase includes the commands recorded, their technical purpose, the associat
 > **Operational note:** Commands are shown as part of the documented recovery sequence, not as instructions to execute on production equipment. Destructive operations require authorization and device-specific compatibility checks.
 
 ---
+
+<a id="phase-1"></a>
 
 ## Phase 1 — Flash Storage Inspection and Formatting
 
@@ -219,7 +253,13 @@ Formatting flash is not equivalent to verified secure data sanitization.
 
 **Observed result:** Internal flash formatting and filesystem inspection were captured.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-2"></a>
 
 ## Phase 2 — Cisco IOS Boot from USB
 
@@ -247,7 +287,13 @@ It provides access to Cisco IOS so that subsequent device operations can be perf
 
 **Observed result:** USB-based IOS boot activity was documented.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-3"></a>
 
 ## Phase 3 — Secure Factory Reset
 
@@ -279,7 +325,13 @@ The presence of the command in the console output does not, by itself, prove com
 
 **Verification limitation:** Formal sanitization acceptance is not established by this screenshot alone.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-4"></a>
 
 ## Phase 4 — FIPS Zeroization
 
@@ -308,7 +360,13 @@ The purpose of this phase was to perform the relevant zeroization operation as p
 
 **Observed result:** Zeroization command activity and related console messages were captured.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-5"></a>
 
 ## Phase 5 — Bootloader Environment Verification
 
@@ -339,7 +397,13 @@ This allows the recovery image and its storage location to be reviewed before bo
 
 Identifying serial-number information was redacted from the public evidence.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-6"></a>
 
 ## Phase 6 — IOS Recovery Following Zeroization
 
@@ -365,7 +429,13 @@ This allowed access to the IOS CLI so that the image could be restored to intern
 
 **Observed result:** Post-zeroization USB boot activity was recorded.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-7"></a>
 
 ## Phase 7 — IOS Image Installation and Boot Configuration
 
@@ -419,7 +489,13 @@ The recovery process therefore requires both file placement and boot configurati
 
 **Verification limitation:** An independent successful reboot from internal flash without USB was not captured in the available evidence.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-8"></a>
 
 ## Phase 8 — Running Configuration Inspection
 
@@ -457,7 +533,13 @@ This review helps identify unexpected or residual configurations.
 
 The screenshot establishes inspection of visible configuration output, not necessarily every configuration line.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-9"></a>
 
 ## Phase 9 — Startup Configuration Inspection
 
@@ -487,7 +569,13 @@ The expected final state depends on the applicable device-processing requirement
 
 **Observed result:** Startup configuration information was recorded.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-10"></a>
 
 ## Phase 10 — VLAN Database Verification
 
@@ -517,7 +605,13 @@ Reviewing VLAN information helps identify unexpected customer-created entries th
 
 No customer-created VLAN was visible in the supplied screenshot.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-11"></a>
 
 ## Phase 11 — VTP and Power Capability Inspection
 
@@ -558,7 +652,13 @@ A lack of PoE functionality is therefore expected and should not be treated as e
 
 **Observed result:** VTP configuration information and power-capability output were documented.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
+
+<a id="phase-12"></a>
 
 ## Phase 12 — Hardware Inventory Verification
 
@@ -585,6 +685,10 @@ This information is useful for confirming hardware model details and validating 
 **Observed result:** The physical device was identified as a Cisco Catalyst WS-C2960X-24TS-L.
 
 Identifying serial-number information was redacted from the screenshot.
+
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
 
 ---
 
@@ -623,6 +727,10 @@ The following matrix summarizes the documented operations and identifies areas n
 
 This project should not be interpreted as a comprehensive hardware certification or official sanitization report.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
 
 # 5. Additional Infrastructure Diagnostics
@@ -656,8 +764,6 @@ These commands can help review:
 
 Actual command availability and output depend on IOS version and platform.
 
----
-
 ## 5.2 Ethernet Interface Diagnostics
 
 ```bash
@@ -683,8 +789,6 @@ An interface that shows as disconnected is not necessarily defective.
 
 A meaningful physical-port test requires suitable connectivity and actual traffic where appropriate.
 
----
-
 ## 5.3 Boot and Flash Verification
 
 ```bash
@@ -699,8 +803,6 @@ The boot configuration, currently running IOS version, and internal flash conten
 
 For stronger recovery validation, an authorized controlled reload without USB media would provide evidence of independent internal-flash boot capability.
 
----
-
 ## 5.4 IOS Image Integrity
 
 Where supported, IOS images can be checked using an appropriate checksum verification command.
@@ -710,6 +812,10 @@ A computed checksum should be compared with a trusted value obtained from an aut
 This verifies file integrity more effectively than checking the filename alone.
 
 No trusted checksum comparison is claimed as part of the documented project.
+
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
 
 ---
 
@@ -728,6 +834,10 @@ No trusted checksum comparison is claimed as part of the documented project.
 | Layer 2 Networking | VLAN and VTP state review |
 | Hardware Identification | Model verification with Cisco inventory commands |
 | Technical Documentation | Screenshot-backed implementation walkthrough |
+
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
 
 ---
 
@@ -765,6 +875,10 @@ Hardware model identification and interface listings are useful, but comprehensi
 
 A strong engineering record identifies what was performed, what the device reported, what was verified, and what remains untested.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
 
 # 8. Project Documentation
@@ -782,6 +896,10 @@ All 12 technical phases include accompanying terminal screenshots stored in the 
 ### Physical Equipment Photography
 
 The equipment photographs and branding assets are stored in the [`assets/`](assets/) directory.
+
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
 
 ---
 
@@ -820,9 +938,13 @@ Cisco-Catalyst-2960X-Hands-On-Infrastructure-Project/
 
 **`assets/`** — Branding and physical equipment photographs.
 
-**`evidence/`** — Original CLI screenshot evidence associated with the 12 technical phases.
+**`evidence/`** — CLI screenshot evidence associated with the 12 technical phases.
 
 **PDF report** — Supporting technical documentation.
+
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
 
 ---
 
@@ -846,6 +968,10 @@ Device identifiers and potentially sensitive operational information should be r
 
 The repository is not intended to reproduce confidential internal procedures or represent an official organizational sanitization certificate.
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
 
 ## Brandon Stevenson
@@ -854,8 +980,10 @@ The repository is not intended to reproduce confidential internal procedures or 
 
 [**Professional Portfolio**](https://brandons-resume.com) • [**GitHub Profile**](https://github.com/Programmer-stevenson) • [**LinkedIn**](https://www.linkedin.com/in/brandon-in-tech/)
 
+<p align="right">
+  <a href="#table-of-contents">↑ Back to Table of Contents</a>
+</p>
+
 ---
 
 *Cisco Catalyst 2960-X — Physical Enterprise Network Infrastructure, IOS Recovery, and Technical Validation*
-
-
