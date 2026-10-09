@@ -1,7 +1,7 @@
 
 # Cisco Catalyst 2960-X | Hands-On Network Infrastructure Project
 
-### NIST-Aligned Secure Sanitization • Cisco IOS Reinstallation • Boot Configuration • Post-Reimage Verification
+### NIST-Aligned Secure Sanitization • Cisco IOS Recovery • Boot Configuration • Post-Reimage Verification
 
 <p align="center">
   <img src="assets/brandons-logo.png" alt="Brandon Stevenson IT Professional" width="300">
@@ -28,7 +28,7 @@ This repository contains photographs of the physical equipment, 12 phases of CLI
 | IOS Image | `c2960x-universalk9-mz.152-7.E11.bin` |
 | Console Application | Tera Term |
 | Access Method | Serial Console |
-| Recovery Media | USB Flash Drive |
+| Recovery Media | USB Flash Drive | Set Boot Variables & Verification
 | Environment | Isolated Physical Equipment |
 | Sanitization Framework | NIST-aligned organizational procedures |
 
