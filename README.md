@@ -622,17 +622,19 @@ For the complete formatted technical report, see:
 # 8. Repository Structure
 
 ```text
-Cisco-2960X-Hands-On-Infrastructure-Project/
+
+# 8. Repository Structure
+
+```text
+Cisco-Catalyst-2960X-Hands-On-Infrastructure-Project/
 │
 ├── README.md
-│
-├── c2960x-whole.png
-├── c2960x-front.png
-│
-├── Cisco_2960X_Engineering_Validation_Report.pdf
+├── Cisco_2960X_Sanitation+Reimage.pdf
 │
 ├── assets/
-│   └── brandons-logo.png
+│   ├── brandons-logo.png
+│   ├── c2960x-whole.png
+│   └── c2960x-front.png
 │
 └── evidence/
     ├── 2960x-step1.png
@@ -648,6 +650,7 @@ Cisco-2960X-Hands-On-Infrastructure-Project/
     ├── 2960x-step11.png
     └── 2960x-step12.png
 ```
+
 
 ---
 
