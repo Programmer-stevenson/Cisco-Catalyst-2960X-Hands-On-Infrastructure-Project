@@ -11,7 +11,7 @@
 
 ## Overview
 
-This project documents hands-on work with a **physical Cisco Catalyst 2960-X (WS-C2960X-24TS-L)** enterprise network switch.
+This project documents hands-on work with a **physical Cisco Catalyst 2960-X ** enterprise network switch.
 
 Using Tera Term and a serial-console connection, I accessed the Cisco bootloader and IOS command-line interface to perform equipment sanitization, reinstall Cisco IOS from USB media, configure the boot image, and inspect the switch following reimaging.
 
