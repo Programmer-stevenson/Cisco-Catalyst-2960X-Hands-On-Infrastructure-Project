@@ -3,7 +3,10 @@
 
 ### Secure Data Sanitization • Cisco IOS Recovery • Boot Configuration • Hardware Verification • Post-Recovery Validation
 
-![Brandon Stevenson — IT Professional](assets/brandons-logo.png)
+<p align="center">
+  <img src="assets/brandons-logo.png" alt="Brandon Stevenson IT Professional" width="150">
+</p>
+
 
 ## Project Overview
 
