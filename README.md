@@ -615,7 +615,7 @@ Recorded terminal evidence and explained the technical purpose of the observed o
 
 For the complete formatted technical report, see:
 
-[**Cisco Catalyst 2960-X Engineering Validation Report (PDF)**](Cisco_2960X_Engineering_Validation_Report.pdf)
+[**Cisco Catalyst 2960-X Engineering Validation Report (PDF)**](Cisco_2960X_Sanitation%2BReimage.pdf)
 
 ---
 
