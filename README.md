@@ -35,6 +35,9 @@ The project demonstrates hands-on experience with:
 
 ## Physical Equipment Gallery
 
+> **Equipment Photography:** Office backgrounds were digitally modified for presentation. The technical CLI screenshots document the actual switch operations.
+
+
 ### Cisco Catalyst 2960-X — Full Switch Overview
 
 ![Cisco Catalyst 2960-X Physical Switch](assets/c2960x-whole.png)
