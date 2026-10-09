@@ -28,21 +28,21 @@ The project demonstrates hands-on experience with:
 
 ---
 
+
 ## Physical Equipment Gallery
 
 ### Cisco Catalyst 2960-X — Full Switch Overview
 
-![Cisco Catalyst 2960-X Physical Switch](c2960x-whole.png)
+![Cisco Catalyst 2960-X Physical Switch](assets/c2960x-whole.png)
 
-*Full view of the physical Cisco Catalyst 2960-X enterprise switch used for this hands-on infrastructure project.*
+*Full view of the physical Cisco Catalyst 2960-X used in this hands-on infrastructure project.*
 
 ### Cisco Catalyst 2960-X — Front Panel and SFP Uplinks
 
-![Cisco Catalyst 2960-X Front Panel](c2960x-front.png)
+![Cisco Catalyst 2960-X Front Panel](assets/c2960x-front.png)
 
-*Close-up of the switch's Gigabit Ethernet access ports and SFP uplink interfaces.*
+*Close-up of the Gigabit Ethernet ports and SFP uplink interfaces.*
 
-> **Photo disclosure:** The office backgrounds in the equipment photographs were digitally modified for presentation consistency. The CLI evidence below documents the actual technical work.
 
 ---
 
