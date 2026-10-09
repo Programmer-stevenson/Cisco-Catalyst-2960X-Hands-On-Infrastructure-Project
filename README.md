@@ -1,30 +1,30 @@
 
-# Cisco Catalyst 2960-X | Hands-On Physical Network Infrastructure Project
+# Cisco Catalyst 2960-X | Hands-On Network Infrastructure Engineering Project
 
-**Secure Data Sanitization | Cisco IOS Recovery | Boot Configuration | Hardware Verification | Post-Recovery Validation**
+### Secure Data Sanitization • Cisco IOS Recovery • Boot Configuration • Hardware Verification • Post-Recovery Validation
 
 ![Brandon Stevenson — IT Professional](assets/brandons-logo.png)
 
 ## Project Overview
 
-This real-world, physical, hands-on network infrastructure project documents the servicing, secure sanitization, Cisco IOS recovery, boot configuration, and post-recovery validation of a Cisco Catalyst 2960-X enterprise access switch.
+This real-world, physical, hands-on network infrastructure project documents the secure data sanitization, Cisco IOS recovery, boot configuration, and post-recovery validation of a **Cisco Catalyst 2960-X (WS-C2960X-24TS-L)** enterprise access switch.
 
-Unlike a simulated networking lab, this project involved working directly with physical enterprise networking equipment using a serial-console connection, Cisco IOS CLI, bootloader recovery environment, and USB-based software installation.
+Unlike a simulated networking lab, this project involved working directly with physical enterprise networking equipment through a serial-console connection, the Cisco switch bootloader, Cisco IOS CLI, and USB-based software recovery.
 
-The project demonstrates practical experience in:
+The project demonstrates hands-on experience with:
 
-- Enterprise network hardware servicing
-- Cisco IOS software recovery and installation
-- Bootloader access and flash storage management
-- Secure factory-reset and zeroization procedures
-- USB-to-flash IOS image recovery
+- Enterprise Cisco network hardware servicing
+- Cisco IOS image recovery and installation
+- Bootloader access and flash filesystem management
+- Secure factory-reset and zeroization operations
+- USB-to-flash IOS image transfer
 - Boot variable configuration and verification
 - Running and startup configuration inspection
-- VLAN and VTP verification
-- Hardware inventory validation
-- Technical troubleshooting and documentation
+- VLAN and VTP state verification
+- Hardware identification and inventory validation
+- CLI troubleshooting and technical documentation
 
-> **Project scope:** This project documents selected operations performed on an isolated physical switch. It is not a production network deployment, comprehensive hardware certification, or formal sanitization certificate.
+**Project Scope:** This was performed on an isolated physical switch, not a production network. The documentation represents observed operations and available CLI evidence rather than a full production deployment or formal sanitization certification.
 
 ---
 
@@ -32,17 +32,17 @@ The project demonstrates practical experience in:
 
 ### Cisco Catalyst 2960-X — Full Switch Overview
 
-![Cisco Catalyst 2960-X Physical Switch](assets/catalyst-2960x-full-switch.jpg)
+![Cisco Catalyst 2960-X Physical Switch](c2960x-whole.png)
 
-*Physical Cisco Catalyst 2960-X enterprise switch used for this project.*
+*Full view of the physical Cisco Catalyst 2960-X enterprise switch used for this hands-on infrastructure project.*
 
-### Front Panel and SFP Uplink Interfaces
+### Cisco Catalyst 2960-X — Front Panel and SFP Uplinks
 
-![Cisco Catalyst 2960-X SFP Ports](assets/catalyst-2960x-sfp-uplinks.jpg)
+![Cisco Catalyst 2960-X Front Panel](c2960x-front.png)
 
-*Close-up view of the Catalyst 2960-X access ports and SFP uplink interfaces.*
+*Close-up of the switch's Gigabit Ethernet access ports and SFP uplink interfaces.*
 
-> **Image disclosure:** These equipment photographs have digitally modified office backgrounds for presentation consistency. Actual terminal captures are provided below as technical evidence.
+> **Photo disclosure:** The office backgrounds in the equipment photographs were digitally modified for presentation consistency. The CLI evidence below documents the actual technical work.
 
 ---
 
@@ -51,44 +51,49 @@ The project demonstrates practical experience in:
 | Component | Specification |
 |---|---|
 | Manufacturer | Cisco Systems |
-| Product Family | Catalyst 2960-X |
+| Device | Catalyst 2960-X |
 | Model | WS-C2960X-24TS-L |
 | Operating System | Cisco IOS |
-| Software Image | c2960x-universalk9-mz.152-7.E11.bin |
-| Access Interfaces | 24 Gigabit Ethernet |
-| Uplink Interfaces | 4 SFP |
-| Console Software | Tera Term |
+| Recovery Image | `c2960x-universalk9-mz.152-7.E11.bin` |
+| Access Interfaces | 24 × Gigabit Ethernet |
+| Uplink Interfaces | 4 × 1G SFP |
+| Console Application | Tera Term |
+| Connection | Serial Console |
 | Recovery Environment | Cisco Switch Bootloader |
 | Installation Media | USB Flash Drive |
-| Infrastructure Type | Physical Enterprise Networking |
-| Network Environment | Offline / Isolated |
+| Operating Environment | Offline / Isolated |
+| Equipment Type | Physical Enterprise Network Switch |
 
 ---
 
-## Project Objectives
+# 1. Project Objectives
 
-The primary objective was to prepare an enterprise Cisco switch for its next stage of processing through secure sanitization, operating-system recovery, and validation.
+The primary objective was to prepare a Cisco Catalyst 2960-X switch for further processing through secure sanitization, operating-system recovery, and technical validation.
 
-The project focused on the following objectives:
+### Engineering Objectives
 
-1. Access the Cisco bootloader and inspect internal flash.
-2. Perform approved secure-sanitization operations.
-3. Recover the operating system using external USB media.
-4. Restore the approved Cisco IOS image to internal flash.
-5. Configure the intended boot image.
-6. Verify the boot variable using Cisco IOS commands.
-7. Inspect running and startup configurations.
-8. Review the VLAN database and VTP settings.
-9. Confirm the switch model and hardware inventory.
-10. Document the observed CLI results and technical findings.
+1. Access the switch's bootloader environment.
+2. Inspect and manage internal flash storage.
+3. Execute authorized secure-sanitization operations.
+4. Boot the Cisco IOS recovery image from USB.
+5. Restore the IOS image into internal flash.
+6. Configure the appropriate boot variable.
+7. Verify the configured boot image.
+8. Inspect the active and saved configurations.
+9. Verify VLAN and VTP information.
+10. Confirm the switch hardware model.
+11. Review the system's post-recovery condition.
+12. Preserve command-line evidence and document technical findings.
 
 ---
 
-# Technical Implementation Walkthrough
+# 2. Technical Implementation Walkthrough
+
+The following sections explain the commands used during the project, their technical purpose, and the available evidence.
 
 ## Phase 1 — Flash Storage Inspection and Formatting
 
-**Commands observed:**
+### Commands
 
 ```bash
 format flash:
@@ -97,25 +102,25 @@ dir flash:
 
 ### Technical Explanation
 
-The switch's internal flash filesystem was accessed through the bootloader environment.
+The switch's bootloader environment provides low-level access to its internal flash filesystem.
 
-The formatting operation targeted the contents of internal flash storage.
+The `format flash:` command formats the internal flash filesystem, removing its existing contents.
 
-The directory was subsequently inspected to review the remaining filesystem contents.
+The `dir flash:` command lists the remaining files and directories and helps confirm the resulting filesystem state.
 
-This operation is part of the overall sanitization workflow, but flash formatting alone does not establish successful secure sanitization.
+These operations support device recovery and sanitization workflows, but formatting alone does not establish that all customer data has been securely sanitized.
 
 ### CLI Evidence
 
 ![Flash Formatting](evidence/2960x-step1.png)
 
-**Result:** Flash formatting and subsequent directory inspection were captured.
+**Observed result:** Flash formatting and filesystem inspection were captured.
 
 ---
 
-## Phase 2 — Booting Cisco IOS from USB
+## Phase 2 — Cisco IOS Boot from USB
 
-**Command observed:**
+### Command
 
 ```bash
 boot usbflash0:c2960x-universalk9-mz.152-7.E11.bin
@@ -123,23 +128,23 @@ boot usbflash0:c2960x-universalk9-mz.152-7.E11.bin
 
 ### Technical Explanation
 
-After flash handling, Cisco IOS was loaded from external USB media.
+After handling the internal flash filesystem, Cisco IOS was loaded from removable USB storage.
 
-This provides a recovery method when the internal operating-system image has been removed or is unavailable.
+The bootloader was directed to locate and execute the specified IOS image.
 
-The bootloader locates the specified image and initiates the IOS boot process.
+This method enables operating-system recovery when the internal image has been removed, damaged, or made unavailable.
 
 ### CLI Evidence
 
 ![USB IOS Boot](evidence/2960x-step2.png)
 
-**Result:** USB-based IOS boot activity was captured.
+**Observed result:** USB-based IOS boot activity was captured.
 
 ---
 
-## Phase 3 — Secure Factory-Reset Operation
+## Phase 3 — Secure Factory Reset
 
-**Command observed:**
+### Command
 
 ```bash
 factory-reset all secure
@@ -147,25 +152,32 @@ factory-reset all secure
 
 ### Technical Explanation
 
-The secure factory-reset procedure targets previously stored configuration and system data.
+The secure factory-reset operation is designed to remove applicable system information and persistent customer data from supported Cisco platforms.
 
-Depending on platform capabilities and software behavior, the process can affect configuration data, logs, IOS images, and other persistent storage.
+Depending on the software and platform, affected information can include:
 
-The reset operation is destructive and requires the appropriate authorization and controlled procedure.
+- Startup and running configuration data
+- Stored IOS images
+- System logs
+- User-created files
+- Supported persistent security information
+- Bootloader variables
+
+The command is destructive and was performed within an authorized equipment-sanitization workflow.
 
 ### CLI Evidence
 
 ![Secure Factory Reset](evidence/2960x-step3.png)
 
-**Result:** The factory-reset invocation and associated confirmation information were recorded.
+**Observed result:** The secure factory-reset operation and associated console prompts were documented.
 
-**Verification limitation:** This screenshot alone does not establish complete sanitization acceptance.
+**Validation note:** A reset command appearing in console output is not, by itself, sufficient evidence of complete sanitization.
 
 ---
 
 ## Phase 4 — FIPS Zeroization
 
-**Commands observed:**
+### Commands
 
 ```bash
 configure terminal
@@ -174,23 +186,23 @@ fips zeroize
 
 ### Technical Explanation
 
-FIPS zeroization is intended to remove applicable cryptographic security material and reset associated security state.
+FIPS zeroization removes applicable cryptographic information and resets associated security state.
 
-The operation is irreversible and may remove stored IOS images and cause the switch to reboot.
+Depending on platform behavior, zeroization may also remove files or images and initiate a system restart.
 
-This operation was performed as part of the controlled sanitization sequence.
+This operation provides an additional security-control step within the approved sanitization process.
 
 ### CLI Evidence
 
 ![FIPS Zeroization](evidence/2960x-step4.png)
 
-**Result:** Zeroization prompts and related reset output were captured.
+**Observed result:** Zeroization-related command activity and console messages were captured.
 
 ---
 
 ## Phase 5 — Bootloader Environment Verification
 
-**Commands observed:**
+### Commands
 
 ```bash
 set
@@ -201,23 +213,29 @@ dir usbflash0:
 
 The `set` command displays bootloader environment variables.
 
-These can include boot paths, reset information, hardware identifiers, and other platform-specific settings.
+These variables may contain information relating to:
 
-The USB filesystem was also inspected to verify the availability of the recovery image.
+- Boot image location
+- Device hardware identification
+- Reset state
+- Stack membership
+- Platform-specific boot settings
+
+The USB filesystem was also inspected to locate the recovery image.
 
 ### CLI Evidence
 
-![Bootloader Verification](evidence/2960x-step5.png)
+![Bootloader Environment](evidence/2960x-step5.png)
 
-**Result:** Bootloader variables and removable-media contents were inspected.
+**Observed result:** Bootloader variables and USB filesystem information were inspected.
 
-Device serial numbers were redacted from the evidence.
+Identifying serial-number information was redacted from the published evidence.
 
 ---
 
-## Phase 6 — IOS Recovery Following Zeroization
+## Phase 6 — IOS Recovery After Zeroization
 
-**Command observed:**
+### Command
 
 ```bash
 boot usbflash0:c2960x-universalk9-mz.152-7.E11.bin
@@ -225,33 +243,33 @@ boot usbflash0:c2960x-universalk9-mz.152-7.E11.bin
 
 ### Technical Explanation
 
-Following the reset and zeroization sequence, the Cisco IOS recovery image was booted again from USB.
+Following the reset and zeroization sequence, the Cisco IOS recovery image was loaded from USB again.
 
-This allowed access to the IOS command-line environment for further recovery operations.
+This restored access to the normal IOS command-line environment so that the approved software image could be copied back into internal flash.
 
 ### CLI Evidence
 
-![IOS Recovery](evidence/2960x-step6.png)
+![Post-Zeroization IOS Recovery](evidence/2960x-step6.png)
 
-**Result:** The post-zeroization USB boot sequence was captured.
+**Observed result:** The post-zeroization IOS recovery sequence was documented.
 
 ---
 
 ## Phase 7 — IOS Installation and Boot Variable Configuration
 
-**Commands observed:**
+### IOS Image Transfer
 
 ```bash
 copy usbflash0: flash:
 ```
 
-The source image was:
+Source image:
 
 ```text
 c2960x-universalk9-mz.152-7.E11.bin
 ```
 
-The boot configuration sequence included:
+### Boot Configuration
 
 ```bash
 configure terminal
@@ -263,31 +281,34 @@ show boot
 
 ### Technical Explanation
 
-The IOS image was copied from removable USB storage into the switch's internal flash.
+The approved IOS image was copied from USB storage into the switch's internal flash.
 
-A boot statement was then configured to reference the recovered image.
+The boot configuration was then updated to reference the intended IOS image.
 
-The running configuration was saved, and the boot configuration was inspected.
+The boot setting was inspected using `show boot`.
 
-### Why This Matters
+### Why Boot Variables Matter
 
-A switch may contain a valid IOS image in flash but still fail to boot automatically if its boot configuration references an incorrect or unavailable image.
+A switch can contain a valid operating-system image but still fail to start if the boot configuration references an incorrect image location.
 
-Verifying the boot variable is therefore a separate and important recovery step.
+Boot validation therefore includes two distinct checks:
+
+1. Confirming the IOS image exists in internal flash.
+2. Confirming the boot configuration references that image.
 
 ### CLI Evidence
 
-![IOS Installation and Boot Verification](evidence/2960x-step7.png)
+![IOS Image Installation and Boot Configuration](evidence/2960x-step7.png)
 
-**Result:** IOS file transfer, boot configuration, and boot-variable inspection were captured.
+**Observed result:** Image recovery, boot configuration, and boot-variable inspection were captured.
 
-**Verification limitation:** An independent successful reload from internal flash without USB is not documented in the supplied screenshots.
+**Limitation:** A successful independent reboot from internal flash without USB was not documented in the supplied evidence.
 
 ---
 
 ## Phase 8 — Running Configuration Inspection
 
-**Command observed:**
+### Command
 
 ```bash
 show running-config
@@ -295,33 +316,31 @@ show running-config
 
 ### Technical Explanation
 
-The running configuration represents the configuration currently active in memory.
+The running configuration represents the active configuration currently held in memory.
 
-Reviewing it helps identify unexpected device-specific configuration settings.
+Inspecting this configuration helps identify device-specific settings that may require review.
 
-Relevant items may include:
+Examples include:
 
 - Hostname
 - Interface configuration
 - VLAN assignments
 - Management addressing
-- Remote-access settings
-- Authentication configuration
-- Boot statements
+- Authentication settings
+- Remote-management settings
+- Boot configuration
 
 ### CLI Evidence
 
-![Running Configuration](evidence/2960x-step8.png)
+![Running Configuration Inspection](evidence/2960x-step8.png)
 
-**Result:** A portion of the running configuration was captured.
-
-The visible output does not establish that every configuration setting was inspected.
+**Observed result:** Running configuration information was captured.
 
 ---
 
 ## Phase 9 — Startup Configuration Inspection
 
-**Command observed:**
+### Command
 
 ```bash
 show startup-config
@@ -329,25 +348,25 @@ show startup-config
 
 ### Technical Explanation
 
-The startup configuration represents the saved configuration intended to persist across reboots.
+The startup configuration contains the saved configuration intended for use during subsequent boot operations.
 
-Comparing running and startup configurations helps identify configuration differences.
+This configuration is distinct from the running configuration.
 
-In this recovery workflow, saving the boot configuration may intentionally create a startup configuration.
+Comparing the two helps identify settings that have been saved versus changes that exist only in memory.
 
-The final state must match the applicable equipment-processing requirements.
+During IOS recovery, saving the boot configuration may intentionally create a startup configuration. The final state must comply with the applicable processing requirements.
 
 ### CLI Evidence
 
-![Startup Configuration](evidence/2960x-step9.png)
+![Startup Configuration Inspection](evidence/2960x-step9.png)
 
-**Result:** Startup configuration output was captured.
+**Observed result:** Startup configuration information was documented.
 
 ---
 
 ## Phase 10 — VLAN Database Verification
 
-**Command observed:**
+### Command
 
 ```bash
 show vlan
@@ -355,25 +374,25 @@ show vlan
 
 ### Technical Explanation
 
-The VLAN database was inspected for expected default and reserved VLANs.
+The VLAN database was inspected to review existing VLAN information.
 
-Cisco Catalyst switches commonly include default VLAN 1 and reserved VLANs 1002 through 1005.
+On a Cisco Catalyst switch, default VLAN 1 and reserved legacy VLANs 1002–1005 are expected.
 
-Unexpected customer-created VLANs may indicate residual configuration requiring further review.
+Unexpected VLAN entries can indicate residual configuration requiring further investigation.
 
 ### CLI Evidence
 
-![VLAN Verification](evidence/2960x-step10.png)
+![VLAN Database Verification](evidence/2960x-step10.png)
 
-**Result:** Default VLAN information was visible in the captured output.
+**Observed result:** Default VLAN information was visible in the captured output.
 
-No custom VLAN was visible in the screenshot.
+No custom VLAN was visible in the supplied screenshot.
 
 ---
 
 ## Phase 11 — VTP and Power Capability Inspection
 
-**Commands observed:**
+### Commands
 
 ```bash
 show vtp status
@@ -382,35 +401,35 @@ show power inline
 
 ### Technical Explanation
 
-VLAN Trunking Protocol (VTP) status was inspected to review the switch's VLAN management state.
+VLAN Trunking Protocol (VTP) information was reviewed to inspect the switch's VLAN management configuration.
 
-Relevant fields include:
+Relevant information includes:
 
 - VTP operating mode
 - VTP version
 - VTP domain
+- VLAN management state
 - Configuration revision
-- VLAN-related settings
 
-The `show power inline` command was also used to inspect power-delivery capabilities.
+The `show power inline` command was also used to inspect supported power-delivery capability.
 
 ### Hardware Consideration
 
-The WS-C2960X-24TS-L is a non-PoE model.
+The WS-C2960X-24TS-L is a non-PoE switch.
 
-Therefore, unavailable PoE output is expected and should not be interpreted as a failed PoE test.
+Therefore, unavailable PoE functionality is expected and should not be considered a hardware fault.
 
 ### CLI Evidence
 
-![VTP Verification](evidence/2960x-step11.png)
+![VTP and Power Capability Verification](evidence/2960x-step11.png)
 
-**Result:** VTP status and power capability information were recorded.
+**Observed result:** VTP status and power capability information were captured.
 
 ---
 
 ## Phase 12 — Hardware Inventory Validation
 
-**Command observed:**
+### Command
 
 ```bash
 show inventory
@@ -418,48 +437,59 @@ show inventory
 
 ### Technical Explanation
 
-The inventory command identifies installed hardware information.
+The `show inventory` command displays hardware identification information for supported components.
 
-This is useful for confirming the model and validating the device against the expected equipment specification.
+This is useful for:
+
+- Confirming the physical switch model
+- Reviewing installed hardware
+- Validating equipment identification
+- Supporting technical inventory documentation
 
 ### CLI Evidence
 
-![Hardware Inventory](evidence/2960x-step12.png)
+![Hardware Inventory Verification](evidence/2960x-step12.png)
 
-**Result:** The switch was identified as a Cisco Catalyst WS-C2960X-24TS-L.
+**Observed result:** The Cisco Catalyst WS-C2960X-24TS-L hardware model was identified.
 
-The serial number was redacted from the screenshot.
+Serial-number information was redacted.
 
 ---
 
-# Verification and QA Matrix
+# 3. Technical Verification Matrix
 
-| Validation Item | Evidence Status |
+The following matrix distinguishes documented activity from tests that were not captured.
+
+| Validation Item | Status |
 |---|---|
 | Physical enterprise switch used | Documented |
-| Flash formatting | Observed |
+| Internal flash formatting | Observed |
 | USB-based IOS boot | Observed |
-| Secure reset invocation | Observed |
-| FIPS zeroization procedure | Observed |
+| Secure factory-reset operation | Observed |
+| FIPS zeroization operation | Observed |
 | IOS image recovery into flash | Observed |
 | Boot variable configuration | Observed |
 | Boot variable inspection | Observed |
-| Running configuration inspection | Partially documented |
-| Startup configuration inspection | Partially documented |
-| VLAN database inspection | Observed |
-| VTP inspection | Observed |
-| Hardware inventory verification | Observed |
-| Trusted image checksum comparison | Not documented |
+| Running configuration inspection | Observed |
+| Startup configuration inspection | Observed |
+| VLAN database verification | Observed |
+| VTP configuration inspection | Observed |
+| Hardware model identification | Observed |
+| IOS checksum comparison with trusted reference | Not documented |
 | Independent reboot from internal flash | Not documented |
-| Complete copper port-health testing | Not documented |
-| SFP uplink connectivity testing | Not documented |
-| Formal sanitization audit acceptance | Outside portfolio evidence |
+| Complete Ethernet port-health testing | Not documented |
+| SFP uplink traffic validation | Not documented |
+| Formal sanitization audit acceptance | Not included in public evidence |
+
+These results describe the available screenshots and should not be interpreted as a complete hardware certification.
 
 ---
 
-# Additional Infrastructure Diagnostics
+# 4. Additional Infrastructure Diagnostics
 
-The following commands are recommended for future authorized validation work. They are not represented as completed in this project.
+The following commands are useful for future authorized hardware-validation exercises.
+
+**These additional tests are reference material and are not claimed as completed during this documented project.**
 
 ## System Health
 
@@ -472,16 +502,20 @@ show memory statistics
 show logging
 ```
 
-These commands can help assess:
+### Engineering Purpose
 
-- IOS version and image information
-- Hardware inventory
-- Environmental operating status
-- CPU utilization
-- Memory usage
-- System logs and errors
+These commands help evaluate:
 
-## Ethernet Interface Health
+- Running software version
+- Device inventory
+- Fan and environmental health
+- Processor utilization
+- Available memory
+- System warnings and errors
+
+---
+
+## Ethernet Interface Diagnostics
 
 ```bash
 show interfaces status
@@ -491,19 +525,23 @@ show interfaces status err-disabled
 show interfaces gigabitEthernet1/0/1
 ```
 
-These commands can help identify:
+### Engineering Purpose
 
-- Interface link state
-- Port speed and duplex
-- CRC and input/output errors
-- Error-disabled interfaces
-- Potential connectivity faults
+These commands help inspect:
 
-A disconnected interface is not necessarily defective.
+- Physical link status
+- Interface speed and duplex
+- CRC and packet errors
+- Error-disabled states
+- Individual interface statistics
 
-Meaningful physical-port validation requires a compatible test connection and, preferably, actual data traffic.
+A disconnected interface is not automatically defective.
 
-## Boot Verification
+Full port-health testing requires suitable test equipment and controlled traffic.
+
+---
+
+## Boot and Flash Integrity
 
 ```bash
 show boot
@@ -511,85 +549,86 @@ show version
 dir flash:
 ```
 
-These commands help validate the configured boot path, running IOS version, and available flash files.
+These commands help confirm the current software image, configured boot target, and internal flash contents.
 
-A controlled reload from internal flash would provide stronger evidence, when authorized.
-
----
-
-# Engineering Knowledge Demonstrated
-
-This project demonstrates practical exposure to several important network infrastructure concepts.
-
-### Network Operating-System Recovery
-
-Using a bootloader and removable media to recover switch operating-system functionality.
-
-### Flash Storage Management
-
-Understanding how IOS images, configuration files, and other system data are stored and managed.
-
-### Boot Configuration
-
-Configuring and verifying the image the switch should load during startup.
-
-### Secure Sanitization
-
-Executing authorized device-reset and zeroization operations within a controlled process.
-
-### Configuration Validation
-
-Reviewing device settings to identify unexpected or residual configurations.
-
-### Hardware Identification
-
-Using Cisco IOS commands to confirm hardware model and inventory information.
-
-### Technical Documentation
-
-Preserving command-line evidence and explaining the purpose and outcome of each operation.
+A controlled independent boot from internal flash provides stronger validation when authorized.
 
 ---
 
-# Key Engineering Takeaways
+# 5. Engineering Skills Demonstrated
 
-1. A successful operating-system boot does not independently prove that a device has been securely sanitized.
+## Cisco IOS Recovery
 
-2. The presence of an IOS image in flash does not guarantee that the switch has the correct boot variable.
+Recovered operating-system functionality through bootloader access and USB-based IOS loading.
 
-3. Bootloader recovery and normal IOS administration are different operating environments.
+## Flash Storage Management
 
-4. Running and startup configurations must be interpreted separately.
+Worked with internal flash storage and removable recovery media.
 
-5. Default and reserved VLANs should not be confused with customer-created VLANs.
+## Boot Configuration
 
-6. Hardware capabilities must be verified against the exact switch model.
+Configured and inspected the boot image path required for system startup.
 
-7. Technical documentation should distinguish observed results from assumptions and tests that have not been performed.
+## Secure Data Sanitization
+
+Performed authorized reset and zeroization operations as part of physical enterprise equipment processing.
+
+## Configuration Verification
+
+Reviewed active and saved configurations, VLAN information, and VTP state.
+
+## Hardware Inventory Validation
+
+Used Cisco CLI commands to confirm the switch model and equipment information.
+
+## Technical Documentation
+
+Recorded terminal evidence and explained the technical purpose of the observed operations.
 
 ---
 
-# Project Documentation
+# 6. Key Engineering Takeaways
 
-For a formatted technical walkthrough with terminal evidence, see:
+1. A successful IOS boot does not independently prove secure data sanitization.
+
+2. An IOS image stored in flash does not guarantee the boot variable references the correct image.
+
+3. Bootloader recovery and normal Cisco IOS administration operate in different command environments.
+
+4. Running and startup configurations must be inspected separately.
+
+5. Default VLANs must be distinguished from customer-created VLANs.
+
+6. Hardware capabilities must be evaluated using the exact switch model.
+
+7. Physical port testing requires more evidence than simply seeing interfaces listed in the CLI.
+
+8. Engineering documentation should clearly separate completed operations from recommended future testing.
+
+---
+
+# 7. Project Documentation
+
+For the complete formatted technical report, see:
 
 [**Cisco Catalyst 2960-X Engineering Validation Report (PDF)**](Cisco_2960X_Engineering_Validation_Report.pdf)
 
 ---
 
-# Repository Structure
+# 8. Repository Structure
 
 ```text
-Cisco-Catalyst-2960X-Hands-On-Infrastructure-Project/
+Cisco-2960X-Hands-On-Infrastructure-Project/
 │
 ├── README.md
+│
+├── c2960x-whole.png
+├── c2960x-front.png
 │
 ├── Cisco_2960X_Engineering_Validation_Report.pdf
 │
 ├── assets/
-│   ├── brandons-logo.png
-│   ├── catalyst-2960x-full-switch.jpg
-│   └── catalyst-2960x-sfp-uplinks.jpg
+│   └── brandons-logo.png
 │
 └── evidence/
     ├── 2960x-step1.png
@@ -608,18 +647,23 @@ Cisco-Catalyst-2960X-Hands-On-Infrastructure-Project/
 
 ---
 
-## About This Project
+# 9. About This Project
 
-This project forms part of my hands-on IT infrastructure and network engineering portfolio.
+This project is part of my hands-on IT infrastructure and network engineering portfolio.
 
-My focus is developing practical skills in enterprise networking, systems administration, infrastructure troubleshooting, cloud technologies, and automation.
+My focus is developing practical experience in enterprise networking, systems administration, infrastructure troubleshooting, cloud engineering, and technical automation.
 
-The project uses real physical networking equipment rather than a virtual simulator.
+This project was completed using **real physical enterprise networking equipment**, not Packet Tracer or a virtual simulator.
 
-**Documentation disclaimer:** All terminal evidence and equipment images must be approved for public release by the equipment owner. The project does not disclose confidential internal procedures or constitute an official organizational sanitization certificate.
+### Documentation and Security Disclaimer
+
+The published material is intended to document technical concepts and authorized work. Any equipment screenshots must be approved for public release by the equipment owner.
+
+Device serial numbers were redacted from the CLI evidence. This project does not reproduce a confidential internal operating procedure or represent an official sanitization certificate.
 
 ---
 
 **Brandon Stevenson — IT Infrastructure & Network Engineering**
 
 [Portfolio Website](https://brandons-resume.com) | [GitHub](https://github.com/Programmer-stevenson) | [LinkedIn](https://www.linkedin.com/in/brandon-in-tech/)
+
