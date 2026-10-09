@@ -600,9 +600,8 @@ The PDF provides a separate technical record of the sanitization and IOS reinsta
 
 ## About
 
-I'm Brandon Stevenson, an IT Infrastructure Technician working with enterprise server and network equipment.
+I'm Brandon Stevenson, an IT Profesional working with enterprise server and network equipment.
 
-My experience includes physical infrastructure servicing, Cisco networking equipment, server management interfaces, operating-system imaging, hardware troubleshooting, and technical documentation.
 
 This repository documents one of my hands-on infrastructure projects using physical enterprise networking hardware.
 
