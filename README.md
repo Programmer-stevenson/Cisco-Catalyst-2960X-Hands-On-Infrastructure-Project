@@ -1,7 +1,7 @@
 
 # Cisco Catalyst 2960-X | Hands-On Network Infrastructure Project
 
-### Secure Sanitization • Cisco IOS Recovery • Boot Configuration • Device Validation
+### **NIST-Aligned Secure Sanitization • Cisco IOS Reinstallation • Boot Configuration • Post-Reimage Validation**
 
 <p align="center">
   <img src="assets/brandons-logo.png" alt="Brandon Stevenson — IT Professional" width="300">
