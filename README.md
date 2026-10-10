@@ -17,7 +17,7 @@ Using Tera Term and a serial-console connection, I accessed the Cisco bootloader
 
 The work was performed on actual enterprise networking equipment, not in a simulator.
 
-The equipment-processing environment operates under NIST media sanitization standards. The documented reset and zeroization operations formed part of that process.
+The equipment-processing environment aims to follow NIST media sanitization standards. The documented reset and zeroization operations formed part of that process.
 
 This repository contains photographs of the physical equipment, 12 phases of CLI evidence, configuration verification, and a supporting technical report.
 
@@ -450,8 +450,6 @@ Inspected the switch's VLAN database following the reimage.
 
 The captured output displayed default VLAN information, including VLAN 1 and the reserved VLAN entries.
 
-No customer-created VLAN was visible in the supplied screenshot.
-
 **CLI Evidence**
 
 ![Phase 10 — VLAN Inspection](evidence/2960x-step10.png)
@@ -613,7 +611,7 @@ This repository documents one of my hands-on infrastructure projects using physi
 
 ---
 
-*This project documents technical operations performed on enterprise equipment. Public release of employer-owned documentation and screenshots requires appropriate authorization. The repository is not an official sanitization certificate.*
+*This project documents technical operations performed on enterprise equipment. The repository is not an official sanitization certificate.*
 
 <p align="right">
   <a href="#table-of-contents">↑ Back to Table of Contents</a>
