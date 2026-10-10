@@ -19,11 +19,11 @@ Using Tera Term and a serial-console connection, I accessed the Cisco bootloader
 
 The work was performed on actual enterprise networking equipment, not in a simulator.
 
-The equipment-processing environment aims to follow NIST media sanitization standards. The documented reset and zeroization operations formed part of that process.
+The project aims to follow NIST media sanitization standards. The documented reset and zeroization operations formed part of that process.
 
-This repository contains photographs of the physical equipment, 12 phases of CLI evidence, configuration verification, and a supporting technical report.
+This repository contains photographs of the physical equipment, 12 phases of CLI + screenshots, configuration verification, and a supporting technical report.
 
-**Professional Experience:** Beyond this individual project, I have performed NIST-aligned sanitization, Cisco IOS recovery, and infrastructure servicing procedures across hundreds of physical enterprise networking devices, including multiple generations of Cisco Catalyst and Nexus switches. This experience encompasses different bootloader environments, operating-system recovery methods, command-line procedures, and hardware configurations.
+**Professional Experience:** Beyond this individual project, I have performed NIST-aligned sanitization, Cisco IOS recovery through USB flash + tftp server, and infrastructure servicing procedures across hundreds of physical enterprise networking devices, including multiple generations of Cisco Catalyst and Nexus switches. This experience encompasses different bootloader environments, operating-system recovery methods, command-line procedures, and hardware configurations.
 
 | Project Detail | Information |
 |---|---|
