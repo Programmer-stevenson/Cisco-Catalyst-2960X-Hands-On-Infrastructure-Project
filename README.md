@@ -11,7 +11,9 @@
 
 ## Overview
 
-This project documents hands-on work with a **physical Cisco Catalyst 2960-X ** enterprise network switch.
+### Project Overview
+
+This project documents hands-on work with a **physical Cisco Catalyst 2960-X** enterprise network switch.
 
 Using Tera Term and a serial-console connection, I accessed the Cisco bootloader and IOS command-line interface to perform equipment sanitization, reinstall Cisco IOS from USB media, configure the boot image, and inspect the switch following reimaging.
 
@@ -20,6 +22,8 @@ The work was performed on actual enterprise networking equipment, not in a simul
 The equipment-processing environment aims to follow NIST media sanitization standards. The documented reset and zeroization operations formed part of that process.
 
 This repository contains photographs of the physical equipment, 12 phases of CLI evidence, configuration verification, and a supporting technical report.
+
+**Professional Experience:** Beyond this individual project, I have performed NIST-aligned sanitization, Cisco IOS recovery, and infrastructure servicing procedures across hundreds of physical enterprise networking devices, including multiple generations of Cisco Catalyst and Nexus switches. This experience encompasses different bootloader environments, operating-system recovery methods, command-line procedures, and hardware configurations.
 
 | Project Detail | Information |
 |---|---|
